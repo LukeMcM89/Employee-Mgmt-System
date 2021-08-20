@@ -1,0 +1,24 @@
+{
+  "name": "employee-mgmt-system",
+  "version": "1.0.0",
+  "description": "A command-line application designed to manage a company's employee database, utilizing Node.js, Inquirer, and MySQL technologies.",
+  "main": "employee_tracker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeMcM89/Employee-Mgmt-System.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeMcM89/Employee-Mgmt-System/issues"
+  },
+  "homepage": "https://github.com/LukeMcM89/Employee-Mgmt-System#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.1.2",
+    "mysql2": "^2.3.0"
+  }
+}
