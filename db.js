@@ -6,6 +6,9 @@ const connection = require('./connection.js');
 
 module.exports={
     addDepartment(department){
-        return connection.query("insert into department set ?", department);
+        return connection.execute("insert into department set ?", department);
+    },
+    getDepartments(){
+        return connection.execute("select * from department");
     }
 };

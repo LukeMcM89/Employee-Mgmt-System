@@ -4,10 +4,8 @@ const connection = mysql.createConnection({
     user: "root",
     password: "bridges7",
     database: "employees"
+}).then( () => {
+    console.log("mysql database connected");
 });
-
-// connection.connect().then( () => {
-//     console.log("mysql database connected");
-// });
 
 module.exports = connection;
