@@ -1,3 +1,4 @@
+const inquirer = require('inquirer');
 const inquire = require('inquirer');
 require ("console.table");
 const db = require('./db.js');
@@ -14,30 +15,69 @@ function init (){
 
 //Offer Main Menu
 
-function mainMenu(){
-    inquire.prompt({
+async function mainMenu(){
+    const response = await inquire.prompt({
         message: "What would you like to do?",
         name: "selection",
         type: "list",
         choices: ["View Department", "View Role", "View Employee", "Add Department", "Add Role", "Add Employee", "Exit"]
-    }).then(response => {
-        if (response.selection ==="View Department") return viewDepartment();
-        if (response.selection ==="View Role") return viewRole();
-        if (response.selection ==="View Employee") return viewEmployee();
-        if (response.selection ==="Add Department") return addDepartment();
-        if (response.selection ==="Add Role") return addRole();
-        if (response.selection ==="Add Employee") return addEmployee();
-        if (response.selection ==="Exit") return finish();
     });
+    if (response.selection ==="View Department") return viewDepartment();
+    if (response.selection ==="View Role") return viewRole();
+    if (response.selection ==="View Employee") return viewEmployee();
+    if (response.selection ==="Add Department") return addDepartment();
+    if (response.selection ==="Add Role") return addRole();
+    if (response.selection ==="Add Employee") return addEmployee();
+    if (response.selection ==="Exit") return finish();
 }
 
-function viewDepartment(){}
+async function viewDepartment(){
+    const depts = await db.getDepartments ();
+    console.table(depts);
+    mainMenu();
+}
 
-function addDepartment(){}
+async function addDepartment(){
+    const response = await inquirer.prompt({
+        message: "What is the name of the new Department?",
+        name: "name"
+    });
+    await db.addDepartment(response);
+    console.log(response.name, "Created!");
+    viewDepartment();
+}
 
-function viewRole(){}
+async function viewRole(){
+    const roles = await db.getRoles ();
+    console.table(roles);
+    mainMenu();
+}
 
-function addRole(){}
+async function addRole(){
+    const departments = await db.getDepartments();
+    const deptchoices = departments.map(dept => ({name:dept.name,value:dept.id}));
+    const response = await inquirer.prompt({
+        message: "Add a Role for which Department?",
+        name: "department_id",
+        type: "list",
+        choices: deptchoices
+    });
+    const response2 = await inquirer.prompt([
+        {
+            message: "Title of new Role?",
+            name: "title"
+        },
+        {
+            message: "Salary of new Role?(MUST be a decimal number)",
+            name: "salary"
+        }
+    ]);
+   
+    //await db.addRole({title:response2.title, salary:response2.salary, department_id:response.department_id});
+    await db.addRole(Object.assign(response,response2));
+    console.log(response2.title, "Created!");
+    viewRole();
+}
 
 function viewEmployee(){}
 
