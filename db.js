@@ -12,7 +12,7 @@ module.exports={
         return connection.query("select * from department");
     },
     addRole(role){
-        return connection.query("insert to role set ?", role);
+        return connection.query("insert into role set ?", role);
     },
     getRoles(){
         return connection.query("select * from role");

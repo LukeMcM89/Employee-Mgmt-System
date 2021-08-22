@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const inquire = require('inquirer');
+const { getEmployees } = require('./db.js');
 require ("console.table");
 const db = require('./db.js');
 
@@ -72,16 +73,31 @@ async function addRole(){
             name: "salary"
         }
     ]);
-   
+    
     //await db.addRole({title:response2.title, salary:response2.salary, department_id:response.department_id});
     await db.addRole(Object.assign(response,response2));
     console.log(response2.title, "Created!");
     viewRole();
 }
 
-function viewEmployee(){}
+//Here and below
 
-function addEmployee(){}
+
+async function viewEmployee(){
+    const employee = await db.getEmployees ();
+    console.table(Employees);
+    mainMenu();
+}
+
+async function addEmployee(){
+    const response = await inquirer.prompt({
+        message: "What is name of the new Employee?",
+        name: "name"
+    });
+        await db.addEmployee(response);
+        console.log(respone.name, "Employee added!")
+        viewEmployee();
+}
 
 function finish(){
     console.log("Thank you for using the application.");
