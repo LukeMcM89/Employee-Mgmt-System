@@ -4,8 +4,11 @@ const db = require('./db.js');
 
 init ();
 
-async function init (){
-    await db.addDepartment( {name:"engineering"});
-    const depts = await db.getDepartments ();
-    console.table(depts);
+function init (){
+    console.log("Welcome user! Begin viewing the following data.");
+    mainMenu();
+   // await db.addDepartment( {name:"Engineering"});
+   // const depts = await db.getDepartments ();
+   // console.table(depts);
 }
+
