@@ -146,6 +146,23 @@ async function update () {
     const empchoices = employees.map(mgr => ({name:`${mgr.name_first} ${mgr.name_last}`, value:mgr.id}));
     const roles = await db.getRoles();
     const rolechoices = roles.map(role => ({ name: role.title, value: role.id }));
+    const response = await inquirer.prompt([
+        {
+            message: "Update role for which Employee?",
+            name: "employee_id",
+            type: "list",
+            choices: empchoices
+        },
+        {
+            message: "What is the role for this Employee",
+            name: "role_id",
+            type: "list",
+            choices: rolechoices
+        }
+    ]);
+    await db.updateEmployeeRole(response.employee_id,response.role_id);
+    console.log("Employee updated.");
+    viewEmployee();
 }
 
 function finish() {
