@@ -28,7 +28,7 @@ Node employee_tracker
 
 Thank you for your time.
 
-Video tutorial link: https://drive.google.com/file/d/1ojn_DriUMbp1U1D3OWbQQ6EO5TulHJdb/view 
+Video tutorial link: https://drive.google.com/file/d/1diwFxzMxjkUXcEmrss-L3ZLmWhY5Mc4t/view?usp=sharing
 
 Link to repository: https://github.com/LukeMcM89/Employee-Mgmt-System
 
