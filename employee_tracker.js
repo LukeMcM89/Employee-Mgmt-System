@@ -21,7 +21,7 @@ async function mainMenu() {
         message: "What would you like to do?",
         name: "selection",
         type: "list",
-        choices: ["View Department", "View Role", "View Employee", "Add Department", "Add Role", "Add Employee", "Exit"]
+        choices: ["View Department", "View Role", "View Employee", "Add Department", "Add Role", "Add Employee", "Update Employee Role", "Exit"]
     });
     if (response.selection === "View Department") return viewDepartment();
     if (response.selection === "View Role") return viewRole();
@@ -29,6 +29,7 @@ async function mainMenu() {
     if (response.selection === "Add Department") return addDepartment();
     if (response.selection === "Add Role") return addRole();
     if (response.selection === "Add Employee") return addEmployee();
+    if (response.selection === "Update Employee Role") return update();
     if (response.selection === "Exit") return finish();
 }
 
@@ -109,6 +110,9 @@ async function addEmployee() {
         return mainMenu();
     }
     const rolechoices = roles.map(role => ({ name: role.title, value: role.id }));
+    const mgrs = await db.getEmployees();
+    const mgrschoices = mgrs.map(mgr => ({name:`${mgr.name_first} ${mgr.name_last}`, value:mgr.id}));
+    mgrschoices.push({name:"No Manager", value: null});
     const response = await inquirer.prompt([
         {
             message: "What is the first name of the new Employee?",
@@ -123,12 +127,25 @@ async function addEmployee() {
             name: "role_id",
             type: "list",
             choices: rolechoices
+        },
+        {
+            message: "Who is Manager for the new Employee?",
+            name: "manager_id",
+            type: "list",
+            choices: mgrschoices
         }
     ]);
-    response.manager_id = null;
+    
     await db.addEmployee(response);
     console.log(response.name_first, response.name_last, "Employee added!")
     viewEmployee();
+}
+
+async function update () {
+    const employees = await db.getEmployees();
+    const empchoices = employees.map(mgr => ({name:`${mgr.name_first} ${mgr.name_last}`, value:mgr.id}));
+    const roles = await db.getRoles();
+    const rolechoices = roles.map(role => ({ name: role.title, value: role.id }));
 }
 
 function finish() {
