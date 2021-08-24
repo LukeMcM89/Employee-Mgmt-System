@@ -6,7 +6,12 @@ This application is best suited for a companies management team who want total a
 # Technologies Used / Required
 
 Node.js
-MySQL
+
+MySQL2
+
+Inquirer
+
+console.table
 
 To install the necessary dependencies, running the following command:
 
@@ -14,13 +19,15 @@ npm i
 
 To utilize and oeprate MySQL effectively, first log into MySQL and source the Employee_DB.sql schema file. 
 Then exit by typing the following command: 
+
 Exit
 
 Upon successful exit of MySQL run the employee_tracker.js file in an Integrated Terminal (right clicking the file) then by typing:
+
 Node employee_tracker
 
 Thank you for your time.
 
-Video tutorial link: 
+Video tutorial link: https://drive.google.com/file/d/1ojn_DriUMbp1U1D3OWbQQ6EO5TulHJdb/view 
 
 Link to repository: https://github.com/LukeMcM89/Employee-Mgmt-System
