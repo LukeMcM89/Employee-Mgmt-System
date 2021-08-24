@@ -31,3 +31,7 @@ Thank you for your time.
 Video tutorial link: https://drive.google.com/file/d/1ojn_DriUMbp1U1D3OWbQQ6EO5TulHJdb/view 
 
 Link to repository: https://github.com/LukeMcM89/Employee-Mgmt-System
+
+<img width="1307" alt="screenshot1" src="https://user-images.githubusercontent.com/80003989/130681837-e197ac23-0ddc-49ea-ac80-dcd1c2fa690e.png">
+
+<img width="1314" alt="screenshot2" src="https://user-images.githubusercontent.com/80003989/130681867-72fa60ef-645f-46cf-97af-7561dd279c7e.png">
