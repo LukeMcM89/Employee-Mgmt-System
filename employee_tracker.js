@@ -137,9 +137,11 @@ async function addEmployee() {
     ]);
     
     await db.addEmployee(response);
-    console.log(response.name_first, response.name_last, "Employee added!")
+    console.log(response.name_first, response.name_last, "Employee added.")
     viewEmployee();
 }
+
+// Update Employee Role 
 
 async function update () {
     const employees = await db.getEmployees();
@@ -164,6 +166,8 @@ async function update () {
     console.log("Employee updated.");
     viewEmployee();
 }
+
+// Thank the user 
 
 function finish() {
     console.log("Thank you for using the application.");
