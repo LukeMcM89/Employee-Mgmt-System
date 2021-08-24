@@ -1,7 +1,7 @@
 # Employee-Mgmt-System
 A command-line application designed to manage a company's employee database, utilizing Node.js, Inquirer, and MySQL technologies.
 
-This application is best suited for a companies management team who want total access and discretionconcerning the creation of new Departments, adding new employees and roles and delineating precise salaries. The application also features the ability for the user to create new managers and update existing employees in the database. 
+This application is best suited for a companies management team who want total access and discretion concerning the creation of new Departments, adding new employees and roles and delineating precise salaries. The application also features the ability for the user to create new managers and update existing employees in the database. 
 
 # Technologies Used / Required
 
