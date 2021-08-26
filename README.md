@@ -17,14 +17,16 @@ To install the necessary dependencies, running the following command:
 
 npm i
 
-To utilize and oeprate MySQL effectively, first log into MySQL and source the Employee_DB.sql schema file. 
+To utilize and operate MySQL effectively, first log into MySQL and source the Employee_DB.sql schema file. 
 Then exit by typing the following command: 
 
 Exit
 
-Upon successful exit of MySQL run the employee_tracker.js file in an Integrated Terminal (right clicking the file) then by typing:
+Upon successful exit of MySQL, run the employee_tracker.js file in an Integrated Terminal (right clicking the file) then type the following command:
 
 Node employee_tracker
+
+The application is then ready to execute upon user input and selection. 
 
 Thank you for your time.
 
