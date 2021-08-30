@@ -13,7 +13,9 @@ Inquirer
 
 console.table
 
-To install the necessary dependencies, running the following command:
+# Installations
+
+To install the necessary dependencies, run the following command:
 
 npm i
 
